@@ -1,0 +1,38 @@
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  background-color: #23cba7;
+  z-index: 1;
+
+  &__page_title
+  {
+    float: left;
+    margin: 10px 20px;
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: bold;
+  }
+  &__user_nav
+  {
+    float: right;
+    margin: 10px 20px;
+    font-size: 16px;
+    line-height: 40px;
+
+    .user_nav--link
+    {
+      margin: 0px 5px;
+      color: #ffffff;
+    }
+  }
+}
