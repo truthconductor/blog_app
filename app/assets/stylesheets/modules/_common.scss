@@ -21,6 +21,9 @@ a {
     font-size: 32px;
     line-height: 40px;
     font-weight: bold;
+    &--link{
+      color: #ffffff;
+    }
   }
   &__user_nav
   {
@@ -29,10 +32,14 @@ a {
     font-size: 16px;
     line-height: 40px;
 
-    .user_nav--link
+    &--link
     {
       margin: 0px 5px;
       color: #ffffff;
     }
   }
+}
+
+.contents {
+  padding: 70px 30px 10px;
 }
