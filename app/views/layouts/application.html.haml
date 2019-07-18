@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BlogApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav
+      .nav-wrapper
+        = link_to posts_path, class: "brand-logo" do
+          ブログ
+        %ul{id: "nav-mobile", class: "right hide-on-small-only"}
+          - if user_signed_in?
+            %li
+              = link_to "/" do
+                マイページ
+            %li<>
+              = link_to destroy_user_session_path, method: :delete do
+                ログアウト
+          - else
+            %li
+              = link_to new_user_session_path do
+                ログイン
+            %li
+              = link_to new_user_registration_path do
+                新規登録
+    .container
+      = yield
