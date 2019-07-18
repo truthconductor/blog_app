@@ -8,20 +8,24 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header.header
-      %h1.header__page_title<>
-        = link_to posts_path, class: "header__page_title--link" do
+    %nav
+      .nav-wrapper
+        = link_to posts_path, class: "brand-logo" do
           ブログ
-      .header__user_nav
-        - if user_signed_in?
-          = link_to "/", class: "header__user_nav--link" do
-            マイページ
-          = link_to destroy_user_session_path, method: :delete, class: "header__user_nav--link" do
-            ログアウト
-        - else
-          = link_to new_user_session_path, class: "header__user_nav--link" do
-            ログイン
-          = link_to new_user_registration_path, class: "header__user_nav--link" do
-            新規登録
-    .contents
+        %ul{id: "nav-mobile", class: "right hide-on-small-only"}
+          - if user_signed_in?
+            %li
+              = link_to "/" do
+                マイページ
+            %li<>
+              = link_to destroy_user_session_path, method: :delete do
+                ログアウト
+          - else
+            %li
+              = link_to new_user_session_path do
+                ログイン
+            %li
+              = link_to new_user_registration_path do
+                新規登録
+    .container
       = yield
