@@ -1,0 +1,13 @@
+.post
+  .post--title<>
+    = post.title
+  %p.post--article
+    = post.article
+  .post--btns
+    = link_to post_path(post), class: "waves-effect waves-light btn" do
+      Show
+    - if user_signed_in? && current_user.id == post.user_id
+      = link_to edit_post_path(post), class: "waves-effect waves-light btn" do
+        Edit
+      = link_to "/posts/1", class: "waves-effect waves-light btn", method: :delete do
+        Delete
