@@ -22,5 +22,6 @@ module BlogApp
       g.test_framework false
     end
 
+    config.time_zone = 'Tokyo'
   end
 end
