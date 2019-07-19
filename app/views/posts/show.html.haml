@@ -1,0 +1,19 @@
+.posts
+  .post
+    .post--header
+      .post--header--title<>
+        = @post.title
+      .post--header--date<>
+        = @post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+    .post--article.z-depth-1
+      = "投稿者:#{@post.user.nickname}"
+      %br
+      = simple_format(@post.article)
+    .post--btns
+      &nbsp
+      - if user_signed_in? && current_user.id == @post.user_id
+        = link_to edit_post_path(@post), class: "waves-effect waves-light btn" do
+          Edit
+        &nbsp
+        = link_to "/posts/1", class: "waves-effect waves-light btn", method: :delete do
+          Delete

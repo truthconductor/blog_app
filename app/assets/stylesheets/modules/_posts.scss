@@ -1,0 +1,28 @@
+.posts {
+  margin: 20px auto;
+  .post {
+    margin: 10px auto 30px;
+    &--header
+    {
+      @include clearfix;
+      &--title {
+        float: left;
+        font-size: 20px;
+        line-height: 30px;
+      }
+      &--date
+      {
+        float: right;
+        color: #666666;
+        font-size: 12px;
+        line-height: 30px;
+      }
+    }
+    &--article
+    {
+      margin: 10px auto;
+      padding: 10px;
+      border: thin solid #cccccc;
+    }
+  }
+}
