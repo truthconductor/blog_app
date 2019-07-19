@@ -11,10 +11,13 @@
     %nav
       .nav-wrapper
         = link_to posts_path, class: "brand-logo" do
-          ブログ
+          みんなのブログ
         %ul{id: "nav-mobile", class: "right hide-on-small-only"}
           - if user_signed_in?
-            %li
+            %li<>
+              = link_to new_post_path do
+                投稿する
+            %li<>
               = link_to "/" do
                 マイページ
             %li<>

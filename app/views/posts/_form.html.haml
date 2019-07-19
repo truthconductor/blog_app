@@ -1,0 +1,10 @@
+= form_with model: post, local: true do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, placeholder: "タイトル", value: post.title
+  .form-group
+    = f.label :article
+    = f.text_area :article, placeholder: "テキスト", value: post.article, class:"materialize-textarea"
+  .action
+    %button{class: "btn waves-effect waves-light",type:"submit", name:"action"}<>
+      投稿
