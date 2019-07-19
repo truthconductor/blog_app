@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
-  
+
   before_action(:move_to_index, except: [:index, :show])
 
   def index
     @posts = Post.includes(:user).all().order("created_at DESC")
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -24,9 +28,18 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    if post.user_id == current_user.id
-      post.update(post_params)
+    @post = Post.find(params[:id])
+    if @post.user_id == current_user.id
+      @post.update(post_params)
+      redirect_to posts_path
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.user_id == current_user.id
+      @post.destroy
+      redirect_to posts_path
     end
   end
 
