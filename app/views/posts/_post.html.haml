@@ -4,10 +4,10 @@
       = post.title
     .post--header--date<>
       = post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
-  %p.post--article.z-depth-1
+  .post--article.z-depth-1
     = "投稿者:#{post.user.nickname}"
     %br
-    = post.article
+    = simple_format(post.article)
   .post--btns
     = link_to post_path(post), class: "waves-effect waves-light btn" do
       Show
