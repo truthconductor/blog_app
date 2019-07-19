@@ -1,13 +1,20 @@
 .post
-  .post--title<>
-    = post.title
-  %p.post--article
+  .post--header
+    .post--header--title<>
+      = post.title
+    .post--header--date<>
+      = post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+  %p.post--article.z-depth-1
+    = "投稿者:#{post.user.nickname}"
+    %br
     = post.article
   .post--btns
     = link_to post_path(post), class: "waves-effect waves-light btn" do
       Show
+    &nbsp
     - if user_signed_in? && current_user.id == post.user_id
       = link_to edit_post_path(post), class: "waves-effect waves-light btn" do
         Edit
+      &nbsp
       = link_to "/posts/1", class: "waves-effect waves-light btn", method: :delete do
         Delete
