@@ -1,5 +1,6 @@
-%h3
-  = "#{@nickname}さんの投稿"
-.posts
-  = render partial: 'posts/post', collection: @posts
+.container
+  %h3
+    = "#{@nickname}さんの投稿"
+  .posts
+    = render partial: 'posts/post', collection: @posts
 = paginate(@posts)

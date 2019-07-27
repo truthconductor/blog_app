@@ -1,3 +1,4 @@
-.posts
-  = render partial: 'post', collection: @posts
-  = paginate(@posts)
+.container
+  .posts
+    = render partial: 'post', collection: @posts
+= paginate(@posts)
