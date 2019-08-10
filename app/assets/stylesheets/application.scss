@@ -6,4 +6,5 @@ $secondary-color: color("cyan", "base") !default;
 @import "./mixin/clearfix";
 @import "./config/variable";
 @import "./modules/common";
+@import "./modules/flash";
 @import "./modules/posts";

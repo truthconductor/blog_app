@@ -19,8 +19,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, notice: "投稿を作成しました。"
     else
+      flash.now[:alert] = "入力をしてください"
       render :new
     end
   end
@@ -36,7 +37,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
       @post.update(post_params)
-      redirect_to posts_path
+      redirect_to posts_path, notice: "投稿を更新しました。"
     end
   end
 
@@ -44,7 +45,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
       @post.destroy
-      redirect_to posts_path
+      redirect_to posts_path, notice: "投稿を削除しました。"
     end
   end
 
