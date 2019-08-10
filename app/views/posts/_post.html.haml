@@ -16,5 +16,5 @@
       = link_to edit_post_path(post), class: "waves-effect waves-light btn" do
         Edit
       &nbsp
-      = link_to "/posts/#{post.id}", class: "waves-effect waves-light btn", method: :delete do
+      = link_to "/posts/#{post.id}", data: {confirm: "投稿を削除しますか？"}, class: "waves-effect waves-light btn", method: :delete do
         Delete
